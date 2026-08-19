@@ -278,6 +278,10 @@ footer{background:var(--dark);padding:36px 32px;text-align:center;border-top:1px
 footer p{font-size:13px;color:rgba(255,255,255,0.3)}
 footer a{color:var(--teal3);text-decoration:none}
 
+/* ── RESPONSIVE MENU ── */
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;z-index:190;background:#fff;border-bottom:1px solid var(--cream2);padding:16px 24px 24px;flex-direction:column;gap:6px}
+.mobile-menu.open{display:flex}
+
 /* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{opacity:0;animation:fadeUp 0.65s ease forwards}
@@ -285,26 +289,65 @@ footer a{color:var(--teal3);text-decoration:none}
 
 /* ── MOBILE ── */
 @media(max-width:900px){
+  nav{padding:0 20px;gap:16px}
+  .nav-links,.nav-actions{display:none}
+  .nav-hamburger{display:flex;margin-left:auto}
   .hero-container{grid-template-columns:1fr;gap:48px;text-align:center}
   .hero-sub{margin:0 auto 32px;max-width:100%}
   .hero-btns{justify-content:center}
-  .hero-visual{display:none}
+  .hero-visual{max-width:620px;width:100%;margin:0 auto}
   .why-grid,.feat-grid{grid-template-columns:repeat(2,1fr)}
   .ws-grid,.steps-layout,.prayer-inner,.future-inner,.deep-grid{grid-template-columns:1fr}
   .ws-who{grid-template-columns:repeat(2,1fr)}
   .roles-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
-  nav{padding:0 20px;gap:16px}
   section{padding:64px 20px}
   .hero{padding:90px 20px 64px}
 }
 @media(max-width:600px){
+  nav{height:60px}
+  .mobile-menu{top:60px;padding-left:20px;padding-right:20px}
+  .nav-logo{width:34px;height:34px}
+  .nav-name{font-size:16px}
+  section{padding:52px 16px}
+  .hero{min-height:auto;padding:92px 16px 52px}
+  .hero h1{font-size:clamp(32px,10vw,44px);letter-spacing:0}
+  .hero-sub,.section-sub,.cta-bg p{font-size:15px}
+  .hero-btns,.cta-btns{flex-direction:column;align-items:stretch}
+  .hero-btns a,.cta-btns a{justify-content:center;width:100%}
+  .hero-stats{gap:8px}
+  .hero-stat{padding:12px 6px}
+  .hero-stat-num{font-size:21px}
+  .hero-stat-label{font-size:9px;letter-spacing:0}
+  .hero-visual{display:none}
   .why-grid,.feat-grid{grid-template-columns:1fr}
   .ws-who{grid-template-columns:1fr 1fr}
   .membership-states{grid-template-columns:1fr}
-  .nav-links{display:none}
-  .nav-hamburger{display:flex}
-  .hero-stats{grid-template-columns:1fr 1fr 1fr}
+  .ws-header,.ws-body{padding-left:20px;padding-right:20px}
+  .why-card,.feat-card,.deep-card{padding:22px 20px}
+  .deep-card{gap:14px}
+  .deep-icon{width:44px;height:44px;font-size:22px}
+  .step-item{gap:14px}
+  .step-circle{width:42px;height:42px;font-size:14px}
+  .steps-track::before{left:21px}
+  .step-link{display:block;overflow-wrap:anywhere}
+  .mflow-item{padding:13px 14px;gap:10px}
+  .pm-body{padding:12px}
+  .pm-card{padding:14px}
+  .pm-footer{align-items:flex-start;flex-wrap:wrap}
+  .pm-name{min-width:calc(100% - 34px)}
+  .pm-pray-btn{margin-left:34px}
+  .comp-table-wrap{overflow-x:auto;margin-top:36px;-webkit-overflow-scrolling:touch}
+  .comp-table{min-width:650px;margin-top:0}
+  .comp-table th,.comp-table td{padding:12px 14px}
+  .cta-bg{padding:72px 16px}
+  .cta-bg h2{font-size:clamp(30px,9vw,44px)}
+  footer{padding:30px 16px}
+  footer p{line-height:1.8}
+}
+@media(min-width:601px) and (max-width:900px){
+  .comp-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .comp-table{min-width:700px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -335,7 +378,7 @@ footer a{color:var(--teal3);text-decoration:none}
 </nav>
 
 <!-- MOBILE MENU -->
-<div id="mobile-menu" style="display:none;position:fixed;top:68px;left:0;right:0;z-index:190;background:#fff;border-bottom:1px solid var(--cream2);padding:16px 24px 24px;flex-direction:column;gap:6px">
+<div id="mobile-menu" class="mobile-menu">
   <a href="#why" onclick="closeMenu()" style="display:block;padding:10px 0;font-size:15px;font-weight:500;color:var(--dark);text-decoration:none;border-bottom:1px solid var(--cream2)">Why FaithConnectHub</a>
   <a href="#workspaces" onclick="closeMenu()" style="display:block;padding:10px 0;font-size:15px;font-weight:500;color:var(--dark);text-decoration:none;border-bottom:1px solid var(--cream2)">Workspaces</a>
   <a href="#features" onclick="closeMenu()" style="display:block;padding:10px 0;font-size:15px;font-weight:500;color:var(--dark);text-decoration:none;border-bottom:1px solid var(--cream2)">Features</a>
@@ -981,6 +1024,7 @@ footer a{color:var(--teal3);text-decoration:none}
     <h2 class="section-title center">FaithConnectHub vs Other Platforms</h2>
     <div class="divider center-div"></div>
     <p class="section-sub center" style="margin:0 auto">Other church management platforms exist — but most are expensive, built for Western churches, and don't combine church management with content publishing and community features in one affordable platform.</p>
+    <div class="comp-table-wrap">
     <table class="comp-table">
       <thead>
         <tr>
@@ -1057,6 +1101,7 @@ footer a{color:var(--teal3);text-decoration:none}
         </tr>
       </tbody>
     </table>
+    </div>
     <p class="comp-note">✓ Full support &nbsp;·&nbsp; Partial &nbsp;·&nbsp; ✗ Not supported</p>
   </div>
 </section>
@@ -1189,10 +1234,10 @@ footer a{color:var(--teal3);text-decoration:none}
 // Mobile menu
 function toggleMenu(){
   const m=document.getElementById('mobile-menu');
-  m.style.display=m.style.display==='flex'?'none':'flex';
+  m.classList.toggle('open');
 }
 function closeMenu(){
-  document.getElementById('mobile-menu').style.display='none';
+  document.getElementById('mobile-menu').classList.remove('open');
 }
 
 // Scroll animations
