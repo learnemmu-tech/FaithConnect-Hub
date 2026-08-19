@@ -107,6 +107,7 @@ section{padding:88px 32px}
 .section-sub{font-size:16.5px;color:var(--gray);line-height:1.75;max-width:580px}
 .center{text-align:center}
 .center .section-sub{margin:0 auto}
+.section-sub.center{margin-left:auto;margin-right:auto}
 .divider{width:56px;height:3px;background:var(--teal);border-radius:2px;margin:18px 0}
 .divider.center-div{margin:18px auto}
 
@@ -267,6 +268,22 @@ section{padding:88px 32px}
 .contact-value a:hover{text-decoration:underline}
 .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
+/* ── FEEDBACK ── */
+.feedback-bg{background:var(--cream)}
+.feedback-card{width:100%;max-width:680px;margin:48px auto 0;background:var(--white);border:1px solid var(--cream2);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-md)}
+.feedback-form{display:flex;flex-direction:column;gap:18px}
+.feedback-field{display:flex;flex-direction:column;gap:7px}
+.feedback-field label{font-size:13px;font-weight:700;color:var(--dark)}
+.feedback-field input,.feedback-field textarea{width:100%;border:1px solid var(--cream2);border-radius:8px;background:var(--white);color:var(--dark);font:inherit;font-size:14px;padding:12px 14px;outline:none;transition:border-color 0.2s,box-shadow 0.2s}
+.feedback-field input:focus,.feedback-field textarea:focus{border-color:var(--teal3);box-shadow:0 0 0 3px var(--teal-light)}
+.feedback-field textarea{min-height:190px;resize:vertical;line-height:1.6}
+.feedback-submit{align-self:flex-start;margin-top:2px}
+.feedback-submit:disabled{cursor:not-allowed;opacity:0.7;transform:none}
+.feedback-status{font-size:14px;line-height:1.6;padding:13px 15px;border-radius:8px}
+.feedback-status.success{color:var(--teal2);background:var(--teal-light);border:1px solid rgba(42,123,111,0.2)}
+.feedback-status.error{color:#9b4545;background:#fff0f0;border:1px solid rgba(229,115,115,0.3)}
+.feedback-status strong{display:block;margin-bottom:2px}
+
 /* ── FOOTER ── */
 footer{background:var(--dark);padding:36px 32px;text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
 .footer-brand{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;text-decoration:none}
@@ -342,6 +359,8 @@ footer a{color:var(--teal3);text-decoration:none}
   .comp-table th,.comp-table td{padding:12px 14px}
   .cta-bg{padding:72px 16px}
   .cta-bg h2{font-size:clamp(30px,9vw,44px)}
+  .feedback-card{margin-top:36px;padding:22px 18px}
+  .feedback-submit{width:100%;justify-content:center}
   footer{padding:30px 16px}
   footer p{line-height:1.8}
 }
@@ -367,6 +386,7 @@ footer a{color:var(--teal3);text-decoration:none}
     <a href="#how-it-works">How It Works</a>
     <a href="#community">Community</a>
     <a href="#future">Future</a>
+    <a href="#feedback">Feedback</a>
   </div>
   <div class="nav-actions">
     <a href="#contact" class="btn-outline">Contact</a>
@@ -385,6 +405,7 @@ footer a{color:var(--teal3);text-decoration:none}
   <a href="#how-it-works" onclick="closeMenu()" style="display:block;padding:10px 0;font-size:15px;font-weight:500;color:var(--dark);text-decoration:none;border-bottom:1px solid var(--cream2)">How It Works</a>
   <a href="#community" onclick="closeMenu()" style="display:block;padding:10px 0;font-size:15px;font-weight:500;color:var(--dark);text-decoration:none;border-bottom:1px solid var(--cream2)">Community</a>
   <a href="#future" onclick="closeMenu()" style="display:block;padding:10px 0;font-size:15px;font-weight:500;color:var(--dark);text-decoration:none;border-bottom:1px solid var(--cream2)">Future</a>
+  <a href="#feedback" onclick="closeMenu()" style="display:block;padding:10px 0;font-size:15px;font-weight:500;color:var(--dark);text-decoration:none;border-bottom:1px solid var(--cream2)">Feedback</a>
   <a href="#contact" onclick="closeMenu()" class="btn-teal" style="margin-top:12px;justify-content:center">Get Started →</a>
 </div>
 
@@ -1058,7 +1079,7 @@ footer a{color:var(--teal3);text-decoration:none}
           <td><span class="cross-x">✗</span></td>
         </tr>
         <tr>
-          <td>Multi-Language Content</td>
+          <td>Multi-Language Support</td>
           <td class="hl"><span class="check">✓</span></td>
           <td><span class="cross-x">✗</span></td>
           <td><span class="cross-x">✗</span></td>
@@ -1093,7 +1114,7 @@ footer a{color:var(--teal3);text-decoration:none}
           <td><span class="cross-x">✗</span></td>
         </tr>
         <tr>
-          <td>Telugu Language Support</td>
+          <td>Multi-Language Support</td>
           <td class="hl"><span class="check">✓</span></td>
           <td><span class="cross-x">✗</span></td>
           <td><span class="cross-x">✗</span></td>
@@ -1174,6 +1195,39 @@ footer a{color:var(--teal3);text-decoration:none}
   </div>
 </section>
 
+<!-- FEEDBACK -->
+<section class="feedback-bg" id="feedback">
+  <div class="container">
+    <div class="eyebrow center">Your Voice Matters</div>
+    <h2 class="section-title center">Help Us Build FaithConnectHub</h2>
+    <div class="divider center-div"></div>
+    <p class="section-sub center">We're building FaithConnectHub to help churches and communities connect, manage content, and grow together. We'd love to hear your thoughts before we launch.</p>
+    <div class="feedback-card">
+      <form class="feedback-form" id="feedback-form" action="https://formsubmit.co/ajax/emmanuel012k@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New FaithConnectHub Website Feedback">
+        <input type="hidden" name="_replyto" value="">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <div class="feedback-field">
+          <label for="feedback-name">Your Name</label>
+          <input id="feedback-name" name="name" type="text" placeholder="Enter your name" autocomplete="name" required>
+        </div>
+        <div class="feedback-field">
+          <label for="feedback-email">Email Address</label>
+          <input id="feedback-email" name="email" type="email" placeholder="Enter your email address" autocomplete="email" required>
+        </div>
+        <div class="feedback-field">
+          <label for="feedback-message">Your Feedback</label>
+          <textarea id="feedback-message" name="feedback" placeholder="What are your thoughts about FaithConnectHub? Tell us what you like, what could be improved, which features would be most valuable, what features are missing, or any problems you think the platform should solve." required></textarea>
+        </div>
+        <button class="btn-teal btn-teal-lg feedback-submit" id="feedback-submit" type="submit">Share Feedback →</button>
+        <div class="feedback-status" id="feedback-status" role="status" aria-live="polite" hidden></div>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- CTA / CONTACT -->
 <section class="cta-bg" id="contact">
   <div class="cta-pattern"></div>
@@ -1208,6 +1262,7 @@ footer a{color:var(--teal3);text-decoration:none}
     <div class="cta-btns">
       <a href="mailto:emmanuel012k@gmail.com" class="btn-teal btn-teal-lg">Request a Demo →</a>
       <a href="mailto:emmanuel012k@gmail.com" class="btn-cream">Get in Touch</a>
+      <a href="#feedback" class="btn-cream">Share Your Feedback →</a>
     </div>
   </div>
 </section>
@@ -1225,6 +1280,7 @@ footer a{color:var(--teal3);text-decoration:none}
     <a href="#how-it-works">How It Works</a>
     <a href="#community">Community</a>
     <a href="#future">Future</a>
+    <a href="#feedback">Feedback</a>
     <a href="#contact">Contact</a>
   </div>
   <p>© 2026 FaithConnectHub &nbsp;·&nbsp; Built by <a href="mailto:emmanuel012k@gmail.com">Emmanuel </a> &nbsp;·&nbsp; Hyderabad, India &nbsp;·&nbsp; <a href="mailto:emmanuel012k@gmail.com">emmanuel012k@gmail.com</a></p>
@@ -1239,6 +1295,41 @@ function toggleMenu(){
 function closeMenu(){
   document.getElementById('mobile-menu').classList.remove('open');
 }
+
+// Feedback form submission
+const feedbackForm=document.getElementById('feedback-form');
+const feedbackSubmit=document.getElementById('feedback-submit');
+const feedbackStatus=document.getElementById('feedback-status');
+
+feedbackForm.addEventListener('submit',async(e)=>{
+  e.preventDefault();
+  feedbackSubmit.disabled=true;
+  feedbackSubmit.textContent='Sending...';
+  feedbackStatus.hidden=true;
+  feedbackStatus.className='feedback-status';
+
+  const formData=new FormData(feedbackForm);
+  formData.set('_replyto',formData.get('email'));
+
+  try{
+    if(window.location.protocol==='file:') throw new Error('LOCAL_FILE_PREVIEW');
+    const response=await fetch(feedbackForm.action,{method:'POST',body:formData,headers:{Accept:'application/json'}});
+    const result=await response.json().catch(()=>({success:false}));
+    if(!response.ok || result.success===false || result.success==='false') throw new Error(result.message||'Feedback submission failed');
+    feedbackForm.reset();
+    feedbackStatus.className='feedback-status success';
+    feedbackStatus.innerHTML='<strong>Thank you for your feedback!</strong>Your thoughts have been received and will help us improve FaithConnectHub.';
+  }catch(error){
+    feedbackStatus.className='feedback-status error';
+    feedbackStatus.textContent=error.message==='LOCAL_FILE_PREVIEW'
+      ?'Please use the deployed Vercel website to send feedback. Browser security blocks email requests from local HTML files.'
+      :'Something went wrong while sending your feedback. Please try again.';
+  }finally{
+    feedbackStatus.hidden=false;
+    feedbackSubmit.disabled=false;
+    feedbackSubmit.textContent='Share Feedback →';
+  }
+});
 
 // Scroll animations
 const obs=new IntersectionObserver((entries)=>{
